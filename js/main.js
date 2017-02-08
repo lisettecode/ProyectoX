@@ -22,7 +22,8 @@ var infoListChats = [
 	new Chat("Roxsy", 'image/roxsy.jpg'),
 	new Chat("Ruth", 'image/ruth.jpg'),
 	new Chat("Fabi", 'image/fabi.jpg'),
-	new Chat("Tati", 'image/tati.jpg')
+	new Chat("Tati", 'image/tati.jpg'),
+    new Chat("Kat", 'image/kat.jpg')
 ];
 
 
@@ -139,3 +140,18 @@ function headerChatDinamic(_contactName, _imageURL, _estado) {
 	chatHeader.getElementsByClassName('w-users-messages')[0].innerHTML = _estado;
 	chatHeader.getElementsByTagName('img')[0].src = _imageURL;
 }
+
+var search = document.getElementById("search"), 
+    food = document.getElementsByClassName("avatar"), 
+    forEach = Array.prototype.forEach; 
+
+search.addEventListener("keyup", function(e){ 
+    var choice = this.value; 
+   
+    forEach.call(food, function(f){ 
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1) 
+            f.parentNode.style.display = "none"; 
+        else 
+            f.parentNode.style.display = "block"; 
+    }); 
+}, false)

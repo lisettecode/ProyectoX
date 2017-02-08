@@ -30,6 +30,14 @@ var infoListChats = [
 //PARTE VISUAL:
 var liListItem = null;
 
+
+function headerChatDinamic(_contactName, _imageURL, _estado) {
+	var chatHeader = document.getElementById("chat-header");
+	chatHeader.getElementsByClassName('w-contact-name')[0].innerHTML = _contactName;
+	chatHeader.getElementsByClassName('w-users-messages')[0].innerHTML = _estado;
+	chatHeader.getElementsByTagName('img')[0].src = _imageURL;
+}
+
 function initiala() {
 
 	initialaChatList();

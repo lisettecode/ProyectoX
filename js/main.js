@@ -102,7 +102,7 @@ function init()
 
 function onInputKeyUp(evt)
 {
-	console.log(evt.keyCode);
+	console.log(evt.keyCode); 
 	if(evt.keyCode == 13)
 	{
 		wapp.sendMessage(new Message(evt.target.value, me));

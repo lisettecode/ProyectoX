@@ -1,4 +1,4 @@
-//PARTE LÓGICA:
+//Lógica
 function Chat(_nombre, _imagen)
 {
 	this.nombre =  _nombre;
@@ -27,16 +27,8 @@ var infoListChats = [
 ];
 
 
-//PARTE VISUAL:
+//Parte visual
 var liListItem = null;
-
-
-function headerChatDinamic(_contactName, _imageURL, _estado) {
-	var chatHeader = document.getElementById("chat-header");
-	chatHeader.getElementsByClassName('w-contact-name')[0].innerHTML = _contactName;
-	chatHeader.getElementsByClassName('w-users-messages')[0].innerHTML = _estado;
-	chatHeader.getElementsByTagName('img')[0].src = _imageURL;
-}
 
 function initiala() {
 
@@ -60,30 +52,25 @@ function initialaChatList() {
 	eventsSetChatList();
 }
 
-function createListChats() {
+function eventsSetChatList() {
+	var listadoChats = document.getElementById('list-chats');
+	var arrayListItems = listadoChats.getElementsByTagName('li');
 
-}
-function createChat(_mensaje) {
-	var listChatsLi = document.getElementById("list-chats");
-
-	if (liListItem == null) {
-		liListItem = document.createElement('LI');
-		var htmlChatItem = '<div class="avatar">' +
-			'<img src="image/logocodeacademy.png" alt="" class="wh-44">' +
-			'<h4 class="w-contact-name">Laboratoria Perú</h4>' +
-			'<p class="w-last-message" id="mensaje">' + _mensaje + '</p>' +
-			'</div>' +
-			'<div class="time" id="hora">14:27</div>';
-
-		liListItem.innerHTML = htmlChatItem;
-
-		listChatsLi.insertBefore(liListItem, listChatsLi.childNodes[0]);
+	for (var i = 0; i < arrayListItems.length; i++) {
+		/*arrayListItems[i].onclick = function(){
+		 alert("Click!");
+		 };*/
+		arrayListItems[i].addEventListener('click', clickOnChatItem);
 	}
-	eventsSetChatList();
-	//listChatsLi.innerHTML += htmlChatItem;
 }
 
-
+function clickOnChatItem(evt) {
+	//console.log(evt.currentTarget);
+	var contactName = evt.currentTarget.getElementsByClassName('w-contact-name')[0].textContent;
+	var imgURL = evt.currentTarget.getElementsByClassName('wh-44')[0].src;
+	console.log('click');
+	headerChatDinamic(contactName, imgURL, "Conectado");
+}
 
 function onMensajeKey(evt) {
 	if (evt.keyCode == 13) {
@@ -124,108 +111,32 @@ function createMessage(_mensaje) {
 	elChat.scrollTop = elChat.scrollHeight;
 }
 
+function createListChats() {
 
-
-
-
-
-
-/*function Chat()
-{
-	this.nombre = '';
-	this.people = [];
-	this.messages = [];
-	this.chatAvatar = '';
 }
+function createChat(_mensaje) {
+	var listChatsLi = document.getElementById("list-chats");
 
-function Person(_name, _avatar)
-{
-	this.name = _name;
-	this.avatar = _avatar;
-}
-function Message(_message, _sender)
-{
-	this.message = _message;
-	this.sender = _sender;
-	this.received = false;
-}
-function Whatsapp()
-{
-	this.chats = [];
-	this.selectedChat = null;
-	this.searchChat		= function(_keyword){};
-	this.getChatFromId	= function(_chatId){};
-	this.drawChatList	= function(_htmlTarget){};
-	this.drawMessageList= function(){
-		var divChat = document.getElementById('chat');
-		divChat.innerHTML = '';
+	if (liListItem == null) {
+		liListItem = document.createElement('LI');
+		var htmlChatItem = '<div class="avatar">' +
+			'<img src="image/logocodeacademy.png" alt="" class="wh-44">' +
+			'<h4 class="w-contact-name">Laboratoria Perú</h4>' +
+			'<p class="w-last-message" id="mensaje">' + _mensaje + '</p>' +
+			'</div>' +
+			'<div class="time" id="hora">14:27</div>';
 
-		for (var i in this.selectedChat.messages) {
-			if (object.hasOwnProperty(i)) {
-				console.log(this.selectedChat.messages[i]);
-				this.sendMessage(this.selectedChat.messages[i], false);
-			}
-		}
-	};
-	this.getLastMessage = function(){
-		return this.selectedChat.messages[this.selectedChat.messages.length-1];
-	};
-	this.sendMessage	= function(_message, _in){
-		var htmlMessageIn = '<div class="w-message w-message-in"><div class="w-message-text"><p>' + _message.message + '</p><div class="time">14:27</div></div></div>';
-		var htmlMessageOut = '<div class="w-message w-message-out"><div class="w-message-text"><p>' + _message.message + '</p><div class="time">14:27</div></div></div>';
-		var divChat = document.getElementById('chat');
+		liListItem.innerHTML = htmlChatItem;
 
-		this.selectedChat.messages.push(_message);
-
-		if(_in)
-		{
-			divChat.innerHTML += htmlMessageIn;
-		}else{
-			divChat.innerHTML += htmlMessageOut;
-		}
-
-		divChat.scrollTop = divChat.scrollHeight;
-	};
-}
-
-var wapp = new Whatsapp();
-
-var me = new Person('Gerson');
-var zare = new Person('Zare');
-
-var chat = new Chat();
-
-chat.people.push(zare);
-
-wapp.chats.push(chat);
-wapp.selectedChat = chat;
-
-wapp.sendMessage(new Message('Hola', zare));
-wapp.sendMessage(new Message('Que tal?', me));
-
-console.log(wapp.getLastMessage().sender);
-
-window.onload = init;
-
-var inputMessage;
-var divChat;
-var chatPanel;
-
-function init()
-{
-	inputMessage = document.getElementById('mensajes');
-	divChat = document.getElementById('chat');
-	//chatPanel = document.querySelector('.w-chat-panel');
-
-	inputMessage.addEventListener('keyup', onInputKeyUp);
-}
-
-function onInputKeyUp(evt)
-{
-	console.log(evt.keyCode); 
-	if(evt.keyCode == 13)
-	{
-		wapp.sendMessage(new Message(evt.target.value, me));
-		evt.target.value = '';
+		listChatsLi.insertBefore(liListItem, listChatsLi.childNodes[0]);
 	}
-*/}
+	eventsSetChatList();
+	//listChatsLi.innerHTML += htmlChatItem;
+}
+
+function headerChatDinamic(_contactName, _imageURL, _estado) {
+	var chatHeader = document.getElementById("chat-header");
+	chatHeader.getElementsByClassName('w-contact-name')[0].innerHTML = _contactName;
+	chatHeader.getElementsByClassName('w-users-messages')[0].innerHTML = _estado;
+	chatHeader.getElementsByTagName('img')[0].src = _imageURL;
+}

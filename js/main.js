@@ -1,5 +1,30 @@
 //PARTE LÓGICA:
+function Chat(_nombre, _imagen)
+{
+	this.nombre =  _nombre;
+	this.imagenURL = _imagen;
+	this.ultimoMensaje = "";
+	this.horaUltimoMensaje = '';
 
+	this.borrarMensajes = function()
+	{
+		/*alert("borrado");*/
+	};
+}
+
+var infoListChats = [
+	new Chat("chat 1", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 2", 'image/logocodeacademy.png'),
+	new Chat("chat 3", 'image/logocodeacademy.png')
+];
 
 
 //PARTE VISUAL:

@@ -5,6 +5,27 @@
 //PARTE VISUAL:
 var liListItem = null;
 
+function initiala() {
+
+	initialaChatList();
+}
+
+function initialaChatList() {
+	var listChatsLi = document.getElementById("list-chats");
+
+	for (var i in infoListChats) {
+		var htmlChatItem = '<li><div class="avatar">' +
+			'<img src="' + infoListChats[i].imagenURL +  '" alt="" class="wh-44">' +
+			'<h4 class="w-contact-name">' + infoListChats[i].nombre + '</h4>' +
+			'<p class="w-last-message" id="mensaje">' + infoListChats[i].ultimoMensaje + '</p>' +
+			'</div>' +
+			'<div class="time" id="hora">' + infoListChats[i].horaUltimoMensaje + '</div></li>';
+		infoListChats[i].borrarMensajes();
+		listChatsLi.innerHTML += htmlChatItem;
+	}
+
+	eventsSetChatList();
+}
 
 
 function onMensajeKey(evt) {

@@ -60,6 +60,30 @@ function initialaChatList() {
 	eventsSetChatList();
 }
 
+function createListChats() {
+
+}
+function createChat(_mensaje) {
+	var listChatsLi = document.getElementById("list-chats");
+
+	if (liListItem == null) {
+		liListItem = document.createElement('LI');
+		var htmlChatItem = '<div class="avatar">' +
+			'<img src="image/logocodeacademy.png" alt="" class="wh-44">' +
+			'<h4 class="w-contact-name">Laboratoria Perú</h4>' +
+			'<p class="w-last-message" id="mensaje">' + _mensaje + '</p>' +
+			'</div>' +
+			'<div class="time" id="hora">14:27</div>';
+
+		liListItem.innerHTML = htmlChatItem;
+
+		listChatsLi.insertBefore(liListItem, listChatsLi.childNodes[0]);
+	}
+	eventsSetChatList();
+	//listChatsLi.innerHTML += htmlChatItem;
+}
+
+
 
 function onMensajeKey(evt) {
 	if (evt.keyCode == 13) {

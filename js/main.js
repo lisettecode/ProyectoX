@@ -1,4 +1,58 @@
-function Chat()
+//PARTE LÓGICA:
+
+
+
+//PARTE VISUAL:
+var liListItem = null;
+
+
+
+function onMensajeKey(evt) {
+	if (evt.keyCode == 13) {
+		var inputMessages = document.getElementById("mensajes");
+
+		createChat(inputMessages.value);
+		createMessage(inputMessages.value);
+
+		inputMessages.value = "";
+	}
+}
+
+function createMessage(_mensaje) {
+	var htmlMensajeIn = '<div class="w-message w-message-in">' +
+		'<div class="w-message-text">' +
+		'<h5 class="green-1">Maria Paula Rivarola</h5>' +
+		'<p>Jajaja Sii finalmente se corto!!</p>' +
+		'<div class="time">11:13</div>' +
+		'</div>' +
+		'</div>';
+
+	var d = new Date();
+	var htmlMensajeOut = '<div class="w-message w-message-out">' +
+		'<div class="w-message-text">' +
+		'<p>' + _mensaje + '</p>' +
+		'<div class="time">' + d.getHours() + ':' + d.getMinutes();
+	+'</div>' +
+	'</div>' +
+	'</div>';
+
+	var mensaje = liListItem.getElementsByClassName("w-last-message")[0];
+	mensaje.innerHTML = _mensaje;
+	console.log();
+
+
+	var elChat = document.getElementById("chat");
+	elChat.innerHTML += htmlMensajeOut;
+	elChat.scrollTop = elChat.scrollHeight;
+}
+
+
+
+
+
+
+
+/*function Chat()
 {
 	this.nombre = '';
 	this.people = [];
@@ -56,11 +110,6 @@ function Whatsapp()
 	};
 }
 
-
-
-
-
-
 var wapp = new Whatsapp();
 
 var me = new Person('Gerson');
@@ -77,13 +126,6 @@ wapp.sendMessage(new Message('Hola', zare));
 wapp.sendMessage(new Message('Que tal?', me));
 
 console.log(wapp.getLastMessage().sender);
-
-
-
-
-
-
-
 
 window.onload = init;
 
@@ -108,4 +150,4 @@ function onInputKeyUp(evt)
 		wapp.sendMessage(new Message(evt.target.value, me));
 		evt.target.value = '';
 	}
-}
+*/}

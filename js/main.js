@@ -13,17 +13,16 @@ function Chat(_nombre, _imagen)
 }
 
 var infoListChats = [
-	new Chat("chat 1", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 3", 'image/logocodeacademy.png')
+	new Chat("Karla", 'image/karla.jpg'),
+	new Chat("Mary", 'image/mary.jpg'),
+	new Chat("Raidza", 'image/raidza.jpg'),
+	new Chat("Gerson", 'image/gerson.jpg'),
+	new Chat("Chío", 'image/chio.jpg'),
+	new Chat("Sheyla", 'image/sheyla.jpg'),
+	new Chat("Roxsy", 'image/roxsy.jpg'),
+	new Chat("Ruth", 'image/ruth.jpg'),
+	new Chat("Fabi", 'image/fabi.jpg'),
+	new Chat("Tati", 'image/tati.jpg')
 ];
 
 

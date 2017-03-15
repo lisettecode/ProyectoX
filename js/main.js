@@ -17,7 +17,7 @@ var infoListChats = [
 	new Chat("Mary", 'image/mary.jpg'),
 	new Chat("Raidza", 'image/raidza.jpg'),
 	new Chat("Gerson", 'image/gerson.jpg'),
-	new Chat("Chío", 'image/chio.jpg'),
+   	new Chat("Chío", 'image/chio.jpg'),
 	new Chat("Sheyla", 'image/sheyla.jpg'),
 	new Chat("Roxsy", 'image/roxsy.jpg'),
 	new Chat("Ruth", 'image/ruth.jpg'),
@@ -26,7 +26,7 @@ var infoListChats = [
     new Chat("Kat", 'image/kat.jpg')
 ];
 
-
+ 
 //Parte visual
 var liListItem = null;
 
@@ -111,9 +111,7 @@ function createMessage(_mensaje) {
 	elChat.scrollTop = elChat.scrollHeight;
 }
 
-function createListChats() {
 
-}
 function createChat(_mensaje) {
 	var listChatsLi = document.getElementById("list-chats");
 

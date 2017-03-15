@@ -169,12 +169,31 @@
         
             var socket;
             window.onload = function () {
-                socket = io.connect("http:services/geekadvice.pe:4000")
+                socket = io.connect("http:services/geekadvice.pe:4000");
+                socket.emit("identify, "Lisette");
+                            socket.on("list_users", function(_users){
+                    console.log(_users);
+                })
             };
              
+            
+            function identificar()[
+                socket.emit()
+            ]
+            
+            function drawUsers(_users)
+            {
+                var lista = $("#lista.usuarios");
+                for(var i in _users)
+                {
+                    lista.append("<li>"+ _users[i].name+"</li>")
+                }
+            }
+            
         </script>
 	  	
 		<script type="text/javascript" src="js/main.js"></script>
+		<scrit type="text/javascript" src="js/jquery.min.js"></scrit>
 		<script scr="/socket.io/socket.io.js"></script>
 		<script src="http:// "></script>
 	</body>
